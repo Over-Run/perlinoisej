@@ -206,7 +206,7 @@ public final class PerlinNoise {
         z -= pz;
         w = (((z * 6 - 15) * z + 10) * z * z * z);
 
-        int seed_i = seed & 0xff;
+        final int seed_i = seed & 0xff;
         r0 = RANDTAB[x0 + seed_i] & 0xff;
         r1 = RANDTAB[x1 + seed_i] & 0xff;
 
@@ -320,10 +320,11 @@ public final class PerlinNoise {
         z -= pz;
         w = (((z * 6 - 15) * z + 10) * z * z * z);
 
+        final int seed_i = seed & 0xff;
         r0 = RANDTAB[x0] & 0xff;
-        r0 = RANDTAB[r0 + seed] & 0xff;
+        r0 = RANDTAB[r0 + seed_i] & 0xff;
         r1 = RANDTAB[x1] & 0xff;
-        r1 = RANDTAB[r1 + seed] & 0xff;
+        r1 = RANDTAB[r1 + seed_i] & 0xff;
 
         r00 = RANDTAB[r0 + y0] & 0xff;
         r01 = RANDTAB[r0 + y1] & 0xff;
