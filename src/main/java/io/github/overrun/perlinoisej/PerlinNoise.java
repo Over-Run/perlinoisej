@@ -2,11 +2,11 @@ package io.github.overrun.perlinoisej;
 
 /**
  * <pre>{@code float  stb_perlin_noise3( float x,
-  *                           float y,
-  *                           float z,
-  *                           int   x_wrap=0,
-  *                           int   y_wrap=0,
-  *                           int   z_wrap=0)}</pre>
+ *                           float y,
+ *                           float z,
+ *                           int   x_wrap=0,
+ *                           int   y_wrap=0,
+ *                           int   z_wrap=0)}</pre>
  * <p>
  * This function computes a random value at the coordinate (x,y,z).<br>
  * Adjacent random values are continuous but the noise fluctuates
@@ -206,8 +206,9 @@ public final class PerlinNoise {
         z -= pz;
         w = (((z * 6 - 15) * z + 10) * z * z * z);
 
-        r0 = RANDTAB[x0 + seed] & 0xff;
-        r1 = RANDTAB[x1 + seed] & 0xff;
+        int seed_i = seed & 0xff;
+        r0 = RANDTAB[x0 + seed_i] & 0xff;
+        r1 = RANDTAB[x1 + seed_i] & 0xff;
 
         r00 = RANDTAB[r0 + y0] & 0xff;
         r01 = RANDTAB[r0 + y1] & 0xff;
